@@ -1,0 +1,16 @@
+cookie:
+  expiry_days: 30
+  key: cargo_analysis_dashboard_key_2024_secure_random_string
+  name: auth
+credentials:
+  usernames:
+    cargo:
+      email: cargo@cargo-analysis.com
+      failed_login_attempts: 0
+      first_name: Cargo
+      last_name: Admin
+      logged_in: false
+      password: $2b$12$yvpUleDlUxRctEvFwxrtaOGXUzkrcCLmZWbMQCkCvXWEgPt36T5wW
+      roles:
+      - admin
+

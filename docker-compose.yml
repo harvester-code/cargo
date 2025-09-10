@@ -1,0 +1,15 @@
+version: "3.8"
+
+# Cargo - 항공 화물 데이터 분석 대시보드
+
+services:
+  cargo:
+    build: .
+    ports:
+      - "8800:8800"
+    volumes:
+      - .:/app # 전체 프로젝트를 컨테이너에 마운트
+      - /volume1/data:/app/data # NAS 데이터 폴더를 컨테이너 내부에 마운트
+    environment:
+      - DATA_DIR=/app/data # 데이터 디렉토리 환경변수 설정
+    restart: always # 컨테이너가 죽었을 때 자동 재시작

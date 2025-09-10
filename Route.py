@@ -5,14 +5,6 @@ from utils.sidebar import *
 from utils.contents import *
 from authentication import initialize_auth
 
-# 페이지 설정
-st.set_page_config(
-    page_title="Cargo Route",
-    page_icon="🚢",
-    layout="wide",
-    initial_sidebar_state="auto",
-)
-
 # 인증 시스템 초기화
 auth_manager = initialize_auth()
 
@@ -54,7 +46,7 @@ else:
     # --------------------- Contents Start ---------------------
     fig = make_cargo_route_pie_chart(cargo_df, airport_ref)
     if fig != None:
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, use_container_width=True)
     # --------------------- Contents End ---------------------
 
     # --------------------- Contents Start ---------------------
@@ -62,15 +54,15 @@ else:
     tab1, tab2 = st.tabs(["출발도시", "도착도시"])
     with tab1:
         fig = make_cargo_mapbox(cargo_df, airport_ref, io="전")
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, use_container_width=True)
     with tab2:
         fig = make_cargo_mapbox(cargo_df, airport_ref, io="후")
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, use_container_width=True)
     # --------------------- Contents End ---------------------
 
     # --------------------- Contents Start ---------------------
     st.subheader(f"🛫 점유율 분석")
     fig = make_cargo_treemap(cargo_df)
     if fig != None:
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, use_container_width=True)
     # --------------------- Contents End ---------------------

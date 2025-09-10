@@ -6,14 +6,6 @@ from utils.sidebar import *
 from utils.contents import *
 from authentication import initialize_auth
 
-# 페이지 설정
-st.set_page_config(
-    page_title="Cargo Airline",
-    page_icon="🛫",
-    layout="wide",
-    initial_sidebar_state="auto",
-)
-
 # 인증 시스템 초기화
 auth_manager = initialize_auth()
 
@@ -53,14 +45,14 @@ else:
     # --------------------- Contents Start ---------------------
     st.caption(f"주요 사용 기재")
     fig = make_cargo_airline_treemap(cargo_df)
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, use_container_width=True)
     # --------------------- Contents End ---------------------
 
     # --------------------- Contents Start ---------------------
     for col in [f"{Columns.ROUTE_NAME}_z", f"{Columns.COUNTRY_NAME}_z", f"{Columns.CITY_NAME}_z"]:
         fig, rank_df = make_cargo_airline_ranking_bar(cargo_df, compare_df, col)
         st.caption(f"Top 20 순위 ({col.split('_')[0]} 기준)")
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, use_container_width=True)
         st.caption(f" * (참고) 전체 데이터")
-        st.dataframe(rank_df, width='stretch')
+        st.dataframe(rank_df, use_container_width=True)
     # --------------------- Contents End ---------------------

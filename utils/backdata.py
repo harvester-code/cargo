@@ -13,7 +13,8 @@ from config import (
 # --- CSS ---
 def load_css():
     st.set_page_config(
-        page_title="Cargo - 화물 데이터 분석",
+        page_title="Cargo - 항공 화물 분석",
+        page_icon="✈️",
         layout="wide",
         initial_sidebar_state="auto",
     )
